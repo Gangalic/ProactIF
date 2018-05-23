@@ -1,0 +1,35 @@
+package fr.insalyon.dasi.proactif.IHM;
+
+
+import fr.insalyon.dasi.proactif.DAO.JpaUtil;
+import fr.insalyon.dasi.proactif.metier.OM.Client;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.util.Date;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author mduraffour
+ */
+public class Main {
+    
+    public static void main(String[] args) throws ParseException{
+        JpaUtil.init();
+        
+        SimpleDateFormat sdf = new SimpleDateFormat ("dd/mm/yyyy");
+        Date d = sdf.parse("01/02/1996");
+        Client cl = new Client ("Trans","BABA","Bibi",d,"In ur butt","23154123423","cur@cur.fr","adlhasuh");
+        System.out.println(cl+"\n");
+        JpaUtil.
+        //ClientService cs = new ClientService();
+        //cs.inscrireClient(c1);
+        
+        JpaUtil.destroy();
+    }
+}

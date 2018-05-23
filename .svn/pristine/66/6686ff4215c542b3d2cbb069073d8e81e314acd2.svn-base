@@ -1,0 +1,117 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.insalyon.dasi.proactif.metier.OM;
+
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+
+/**
+ *
+ * @author mduraffour
+ */
+@Entity
+@Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
+public class Personne implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Integer id;
+    protected String civilite;
+    protected String nom;
+    protected String prenom;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    protected Date dateNaiss;
+    protected String adressePost;
+    protected String numTel;
+    protected String mail;
+    protected String mdp;
+    protected Integer latitude;
+    protected Integer longitude;
+
+    //Constructeurs
+    public Personne(String civilite, String nom, String prenom, Date dateNaiss, String adressePost, String numTel, String mail, String mdp) {
+        this.civilite = civilite;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaiss = dateNaiss;
+        this.adressePost = adressePost;
+        this.numTel = numTel;
+        this.mail = mail;
+        this.mdp = mdp;
+    }
+
+    public Personne() {
+    }
+
+    
+    //setters
+    public void setLatitude(Integer latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(Integer longitude) {
+        this.longitude = longitude;
+    }
+
+    
+    //getters
+    public String getCivilite() {
+        return civilite;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public Date getDateNaiss() {
+        return dateNaiss;
+    }
+
+    public String getAdressePost() {
+        return adressePost;
+    }
+
+    public String getNumTel() {
+        return numTel;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public int getLatitude() {
+        return latitude;
+    }
+
+    public int getLongitude() {
+        return longitude;
+    }
+
+    @Override
+    public String toString() {
+        return ""+nom+" "+ prenom;
+    }
+    
+    
+    
+    
+}
